@@ -1,7 +1,8 @@
-from django import forms
+from .models import Task
+from django.forms import ModelForm
 
 
-class UserForm(forms.Form):
-	name = forms.CharField(label="Название задачи", help_text="Введите название задачи")
-	desc = forms.CharField(label="Описание", widget=forms.Textarea)
-	# age = forms.IntegerField(label="Возраст")
+class TaskForm(ModelForm):
+	class Meta:
+		model = Task
+		fields = "__all__"

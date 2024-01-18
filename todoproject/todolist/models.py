@@ -9,6 +9,7 @@ class Status(models.Model):
 
 
 class Task(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     desc = models.TextField()
     create_time = models.DateTimeField(auto_now_add=True)

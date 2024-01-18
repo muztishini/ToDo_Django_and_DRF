@@ -9,5 +9,9 @@
 <body>
     <h1>Main!!!</h1>
     <h3>{{variable}}</h3>
+    {% for task in tasks %}
+        <p>{{task.name}} : {{task.desc}} : {{task.create_time}} : {{task.update_time}} : {{task.status_id}}</p>
+    {% endfor %}
+    <a href="add_task">Добавить задачу</a>
 </body>
 </html>

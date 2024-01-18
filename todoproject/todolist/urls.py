@@ -7,6 +7,6 @@ router.register(r'api/task', TaskViewSet)
 
 urlpatterns = [
   path("", index),
-  path("add_task", add_task),
+  path("add_task", add_task, name="add_task"),
   path('', include(router.urls)),
 ]
