@@ -4,14 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static "styles.css" %}" />
-    <title>Title</title>
+    <title>Главная</title>
 </head>
 <body>
-    <h1>Main!!!</h1>
-    <h3>{{variable}}</h3>
-    {% for task in tasks %}
-        <p>{{task.name}} : {{task.desc}} : {{task.create_time}} : {{task.update_time}} : {{task.status_id}}</p>
-    {% endfor %}
-    <a href="add_task">Добавить задачу</a>
+    {% if tasks.count > 0 %}
+    <h2>Список задач</h2>
+    <table>
+        <thead><th>Id</th><th>Название</th><th>Описание</th><th>Дата создания</th><th>Дата обновления</th><th>Статус</th></thead>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.desc }}</td>
+            <td>{{ task.create_time }}</td>
+            <td>{{ task.update_time }}</td>
+            <td>{{ task.status_id }}</td>
+            <td><a href="edit_task/{{task.id}}">Изменить</a> | <a href="delete_task/{{task.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <p><a href="add_task">Добавить задачу</a></p>
+
 </body>
 </html>
