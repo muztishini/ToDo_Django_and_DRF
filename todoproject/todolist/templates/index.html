@@ -3,14 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static "styles.css" %}" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Главная</title>
 </head>
 <body>
     {% if tasks.count > 0 %}
     <h2>Список задач</h2>
-    <table>
-        <thead><th>Id</th><th>Название</th><th>Описание</th><th>Дата создания</th><th>Дата обновления</th><th>Статус</th></thead>
+    <table class="table table-striped">
+        <thead><th scope="col">Id</th><th scope="col">Название</th><th scope="col">Описание</th><th scope="col">Дата создания</th><th scope="col">Дата обновления</th><th scope="col">Статус</th></thead>
         {% for task in tasks %}
         <tr>
             <td>{{ task.id }}</td>
@@ -19,13 +20,15 @@
             <td>{{ task.create_time }}</td>
             <td>{{ task.update_time }}</td>
             <td>{{ task.status_id }}</td>
-            <td><a href="edit_task/{{task.id}}">Изменить</a> | <a href="delete_task/{{task.id}}">Удалить</a></td>
+            <td><a href="edit_task/{{task.id}}" class="link-secondary">Изменить</a> | <a href="" class="link-danger" onclick="showConfirmation({{task.id}});">Удалить</a></td>
         </tr>
         {% endfor %}
     </table>
     {% endif %}
 
     <p><a href="add_task">Добавить задачу</a></p>
+
+    <script src="{% static 'script.js' %}" ></script>
 
 </body>
 </html>

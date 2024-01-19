@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Добавить задачу</title>
 </head>
 <body>
+<h3>Добавить задачу</h3>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type = "submit" value = "Сохранить">
+    <input type = "submit" value = "Сохранить" class="btn btn-success">
 </form>
-<p><a href="/">Home</a></p>
+<p><a href="/" class="link-primary">Home</a></p>
 </body>
 </html>
